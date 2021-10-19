@@ -10,4 +10,11 @@ class Dog < ApplicationRecord
     name = owner.name unless name.nil?
     name ||= 'Unknown'
   end
+
+  #consider making separate Dogs model to contain plural logic
+  def self.page(page_number = 0)
+    page_length = Rails.configuration.dogs_per_page
+    offset = page_number * page_length
+    Dog.limit(page_length).offset(offset)
+  end
 end
