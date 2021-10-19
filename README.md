@@ -11,7 +11,7 @@ so that will need to be backfilled once we get the info. In the meantime these w
 
 ## Add pagination to index of dogs.
 
-- Should be configurable.
+- Config in application.rb
 - Index is page 1 by default.
 - I made a hacky lil next button. The mythical Full Stack Dev is here!!!
 
