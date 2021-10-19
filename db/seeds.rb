@@ -9,7 +9,8 @@
 dogs = [
   {
     name: 'Bowie',
-    description: 'Bowie dances when he walks'
+    description: 'Bowie dances when he walks',
+    user_id: 1
   },
   {
     name: 'Brownie',
@@ -49,8 +50,24 @@ dogs = [
   },
 ]
 
+password = '123456'
+users = [
+    {
+        user_id: 1,
+        name: 'Ava',
+        email: 'a@v.a',
+        password: 'cannot be nil',
+        created_at: Time.now,
+        updated_at: Time.now
+    }
+]
+
+users.each do |user|
+  user = User.find_or_create_by(id: user[:user_id], name: user[:name], created_at: user[:created_at], updated_at: user[:updated_at])
+end
+
 dogs.each do |dog|
-  dog = Dog.find_or_create_by(name: dog[:name], description: dog[:description])
+  dog = Dog.find_or_create_by(name: dog[:name], description: dog[:description], user_id: dog[:user_id])
   directory_name = File.join(Rails.root, 'db', 'seed', "#{dog[:name].downcase}", "*")
 
   Dir.glob(directory_name).each do |filename|
