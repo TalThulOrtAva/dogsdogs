@@ -13,8 +13,9 @@ class Dog < ApplicationRecord
 
   #consider making separate Dogs model to contain plural logic
   def self.page(page_number = 0)
+    page_number = 0 if page_number == nil
     page_length = Rails.configuration.dogs_per_page
-    offset = page_number * page_length
+    offset = page_number.to_i * page_length
     Dog.limit(page_length).offset(offset)
   end
 end
