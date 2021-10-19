@@ -29,5 +29,8 @@ module DogProfile
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Add this line:
+    config.active_record.schema_format = :sql
   end
 end
