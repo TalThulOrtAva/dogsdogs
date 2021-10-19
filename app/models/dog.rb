@@ -5,4 +5,9 @@ class Dog < ApplicationRecord
   def owner
     User.find_by(id: user_id)
   end
+
+  def owner_name
+    name = owner.name unless name.nil?
+    name ||= 'Unknown'
+  end
 end
