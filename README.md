@@ -1,5 +1,3 @@
-#Features added:
-
 Features you'll go mutts over!
 
 ## Allow dogs to be associated with an owner.
