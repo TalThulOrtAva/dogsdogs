@@ -18,4 +18,9 @@ class Dog < ApplicationRecord
     offset = page_number.to_i * page_length
     Dog.limit(page_length).offset(offset)
   end
+
+  def self.max_page
+    dogs_per_page = Rails.configuration.dogs_per_page
+    (Dog.count / dogs_per_page.to_i) - 1 unless dogs_per_page.to_i == 0
+  end
 end

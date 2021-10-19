@@ -4,7 +4,10 @@ class DogsController < ApplicationController
   # GET /dogs
   # GET /dogs.json
   def index(page = 0)
-    @dogs = Dog.page(params[:page])
+    current_page = params[:page]
+    session[:current_page] = current_page
+    session[:max_page] = Dog.max_page
+    @dogs = Dog.page(current_page)
   end
 
   # GET /dogs/1

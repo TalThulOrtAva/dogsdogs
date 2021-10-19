@@ -1,1 +1,4 @@
 <%= render partial: 'thumbnail', collection: @dogs, as: :dog %>
+<% if session[:current_page].to_i < session[:max_page].to_i %>
+    <%= link_to 'next page', ('/?page='+(session[:current_page].to_i+1).to_s), class: 'button' %>
+<% end %>
