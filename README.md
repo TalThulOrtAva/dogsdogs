@@ -17,4 +17,5 @@ so that will need to be backfilled once we get the info. In the meantime these w
 
 ## What now?
 - I'm going to go read about all the new gems that came into existence in the past 5 years.
+- Also... everything. And maybe reread Metz for good measure. 
 - Thanks for the opportunity! Happy to talk about any design choices.
