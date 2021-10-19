@@ -32,5 +32,8 @@ module DogProfile
 
     # Add this line:
     config.active_record.schema_format = :sql
+
+    #dog pagination config
+    config.dogs_per_page = 5
   end
 end
