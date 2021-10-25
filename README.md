@@ -1,5 +1,3 @@
-#Features added:
-
 Features you'll go mutts over!
 
 ## Allow dogs to be associated with an owner
@@ -13,7 +11,7 @@ so that will need to be backfilled once we get the info. In the meantime these w
 
 ## Add pagination to index of dogs
 
-- Should be configurable.
+- Config in application.rb
 - Index is page 1 by default.
 - I made a hacky lil next button. The Mythical Full Stack Dev is here!!!
 
@@ -30,4 +28,5 @@ so that will need to be backfilled once we get the info. In the meantime these w
 
 ## What now?
 - I'm going to go read about all the new gems that came into existence in the past 5 years.
+- Also... everything. And maybe reread Metz for good measure. 
 - Thanks for the opportunity! Happy to talk about any design choices.
