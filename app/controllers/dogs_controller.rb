@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
   before_action :set_dog, only: [:show, :edit, :update, :destroy]
+  before_action :dog_is_owned?, only: [:update, :destroy, :edit]
 
   # GET /dogs
   # GET /dogs.json
@@ -28,6 +29,8 @@ class DogsController < ApplicationController
   # POST /dogs.json
   def create
     @dog = Dog.new(dog_params)
+    @dog.user_id = current_user.id unless current_user.nil?
+    @dog.save
 
     respond_to do |format|
       if @dog.save
@@ -69,6 +72,18 @@ class DogsController < ApplicationController
   end
 
   private
+
+  def dog_does_not_match_user
+    current_user.nil? || @dog.user.nil? || current_user.id != @dog.user.id
+  end
+
+  def dog_is_owned?
+    if dog_does_not_match_user
+      redirect_to @dog, notice: "Only the dog's owner may edit the dog!"
+    else
+      @dog.user == current_user
+    end
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_dog
